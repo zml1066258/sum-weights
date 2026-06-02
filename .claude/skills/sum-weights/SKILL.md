@@ -28,9 +28,34 @@ description: 计算 rl_init_final_weights / sft_init_final_weights 等权重列�
 
 ## 步骤 3：调用计算器
 
+优先使用当前 skill 目录下的 `sum_weights.py`，不要写死某个用户名或某台机器的绝对路径。
+
+通用调用思路：
+
 ```bash
-python3 /home/luzm/.claude/skills/sum-weights/sum_weights.py < temp_file
+python3 <当前 skill 目录>/sum_weights.py < temp_file
 ```
+
+这个 skill 可能安装在不同位置，例如：
+
+- Claude Code 全局目录：`~/.claude/skills/sum-weights/`
+- opencode 全局目录：`~/.config/opencode/skills/sum-weights/`
+- Claude Code 项目目录：`./.claude/skills/sum-weights/`
+- opencode 项目目录：`./.opencode/skills/sum-weights/`
+
+如果安装在 Claude Code 全局目录，可以这样调用：
+
+```bash
+python3 ~/.claude/skills/sum-weights/sum_weights.py < temp_file
+```
+
+如果安装在 opencode 全局目录，可以这样调用：
+
+```bash
+python3 ~/.config/opencode/skills/sum-weights/sum_weights.py < temp_file
+```
+
+如果安装在项目内目录，则使用项目内对应路径，例如 `./.claude/skills/sum-weights/sum_weights.py` 或 `./.opencode/skills/sum-weights/sum_weights.py`。
 
 ## 步骤 4：输出结果
 
